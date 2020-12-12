@@ -1,9 +1,6 @@
 package main
 
-import (
-	"scanFolders/cmd/scan"
-)
-
 func main() {
-	scan.Scan()
+	//scan.Scan()
+	//size.Size("C:\\Users\\omerb\\go\\src\\scanFolders")
 }

@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 )
 
-func scanFolder(rootFolder) []string {
+func ScanFolder(rootFolder string) []string {
 	var files []string
 
 	err := filepath.Walk(rootFolder, func(path string, info os.FileInfo, err error) error {
@@ -15,4 +15,5 @@ func scanFolder(rootFolder) []string {
 	if err != nil {
 		panic(err)
 	}
+	return files
 }
