@@ -1,19 +1,24 @@
 package writeToFile
 
 import (
+	"bufio"
+	"fmt"
 	"log"
 	"os"
-	"strings"
 )
-
-func Write(files []string, size string){
-	f, err := os.Create("files.txt")
+// Writes a list of files and the size to a file specified in filename
+func Write(files []string, size string, filename string){
+	filename +=".txt"
+	f, err := os.Create(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
-	filesInBytes := "\x00" + strings.Join(files, "\x20\x00")
-	data := []byte(filesInBytes)
-	f.Write(data)
+	writer:= bufio.NewWriter(f)
+	for _, file := range files{
+		fmt.Fprintln(writer, file)
+	}
+	writer.Flush()
+	fmt.Fprintln(f, "-------------------")
 	f.Write([]byte(size))
 	defer f.Close()
 }

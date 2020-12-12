@@ -1,13 +1,10 @@
 package scan
 
 import (
-	"fmt"
 	"scanFolders/pkg/scan"
 )
 
-func Scan(rootFolder string) {
+func Scan(rootFolder string) []string {
 	files := scan.ScanFolder(rootFolder)
-	for _, file := range files {
-		fmt.Println(file)
-	}
+	return files
 }

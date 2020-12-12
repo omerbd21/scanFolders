@@ -5,7 +5,7 @@ import (
 	"scanFolders/pkg/size"
 )
 
-func Size(path string)  {
+func Size(path string) string  {
 	folderSize, _ := size.FolderSize(path)
-	fmt.Println("Directory", path, "Size (KB)", folderSize)
+	return fmt.Sprintln("Directory", path, "Size (KB)", folderSize)
 }
